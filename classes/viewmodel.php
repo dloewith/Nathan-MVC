@@ -8,7 +8,7 @@
 
 class ViewModel
 {    
-    //dynamically adds a property
+    //dynamically adds a property or method to the ViewModel instance
     public function add($name,$val)
     {
         $this->$name = $val;

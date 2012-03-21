@@ -11,32 +11,37 @@ abstract class BaseController
     protected $urlValues;
     protected $action;
     
-    public function __construct($action, $urlvalues)
-    {
+    public function __construct($action, $urlvalues) {
         $this->action = $action;
         $this->urlValues = $urlValues;
     }
         
     //executes the requested method
-    public function executeAction()
-    {
+    public function executeAction() {
         return $this->{$this->action}();
     }
         
-    //binds the provided data to the controller's view. 2nd argument determines whether to use the main template or not. E.g. a method designed for AJAX requests would not use it.
-    protected function returnView($viewModel, $fullView)
-    {
-        //generate the location of this method's view
-        $viewLoc = 'views/' .  get_class($this) . '/' . $this->action . '.php';
+    //this binds the model data to the controller's view. 2nd argument is the main template to be used - set as boolean false when calling this method to avoid using any template.
+    protected function returnView($viewModel, $template = "maintemplate") {
         
-        if ($fullView)
-        {
-            //include the full template
-            require('views/maintemplate.php');
-            
+        //generate the location of this method's view
+        $viewLoc = "views/" .  get_class($this) . "/" . $this->action . ".php";
+        $templateLoc = "views/".$template.".php";
+        
+        if (file_exists($viewLoc)) {
+            if ($template) {
+                //include the full template
+                if (file_exists($templateLoc)) {
+                    require("views/".$template.".php");
+                } else {
+                    require("views/error/badtemplate.php");
+                }
+            } else {
+                //we're not using a template view so just output the method's view directly
+                require($viewLoc);
+            }
         } else {
-            //we're not using the full template view so just output the method's view
-            require($viewLoc);
+            require("views/error/badview.php");
         }
     }
 }

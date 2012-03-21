@@ -11,8 +11,9 @@ class Home extends BaseController
     //default method
     protected function index()
     {
+        require("models/home.php");
         $HomeModel = new HomeModel(); 
-        $this->ReturnView($HomeModel->index(), true);
+        $this->returnView($HomeModel->index());
     }
 }
 

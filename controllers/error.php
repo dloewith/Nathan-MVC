@@ -11,8 +11,9 @@ class Error extends BaseController
     //bad URL request error
     protected function badURL()
     {
+        require("models/error.php");
         $ErrorModel = new ErrorModel(); 
-        $this->ReturnView($ErrorModel->badURL(), true);
+        $this->ReturnView($ErrorModel->badURL());
     }
 }
 

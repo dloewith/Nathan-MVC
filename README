@@ -20,7 +20,7 @@ Tested versions include Apache 2.2.3 and PHP 5.3.6.
 Where to now
 ------------
 
-If you intend to expand on this framework, your first step is to probably think about where you'll store images, css files and js files (/content and /js ?), and to modify the maintemplate.php file under /views. From there, you can start creating controllers and models appropriately, making sure to extend from the base classes for each (see the existing home and error controllers and models for examples). Then you'll want to match your controller structure in the views directory, and create a view file for each of your controller's actions/methods (again, home and error can be used as an example). Finally, you'll want to include/require any non view PHP file you create (e.g. controllers, methods, etc) inside index.php. You don't need to include the files in /views, as this is done automatically based on the URL being requested.
+If you intend to expand on this framework, your first step is to probably think about where you'll store images, css files and js files (/content and /js ?), and to modify the maintemplate.php file under /views. From there, you can start creating controllers and models appropriately, making sure to extend from the base classes for each (see the existing home and error controllers and models for examples). Then you'll want to match your controller structure in the views directory, and create a view file for each of your controller's actions/methods (again, home and error can be used as an example).
 
 With this all done, any controller, action and view setup you create should be viewable via /controller/action.
 

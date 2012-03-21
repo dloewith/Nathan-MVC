@@ -35,6 +35,14 @@ class Loader
     //factory method which establishes the requested controller as an object
     public function createController()
     {
+        //check our requested controller's class file exists and require it if so
+        if (file_exists("controllers/" . $this->controller . ".php")) {
+            require("controllers/" . $this->controller . ".php");
+        } else {
+            require("controllers/error.php");
+            return new error("badurl",$this->urlValues);
+        }
+                
         //does the class exist?
         if (class_exists($this->controller))
         {
@@ -49,14 +57,17 @@ class Loader
                     return new $this->controller($this->action,$this->urlValues);
                 } else {
                     //bad action/method error
+                    require("controllers/error.php");
                     return new error("badurl",$this->urlValues);
                 }
             } else {
                 //bad controller error
+                require("controllers/error.php");
                 return new error("badurl",$this->urlValues);
             }
         } else {
             //bad controller error
+            require("controllers/error.php");
             return new error("badurl",$this->urlValues);
         }
     }
