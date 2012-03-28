@@ -11,7 +11,7 @@ abstract class BaseController
     protected $urlValues;
     protected $action;
     
-    public function __construct($action, $urlvalues) {
+    public function __construct($action, $urlValues) {
         $this->action = $action;
         $this->urlValues = $urlValues;
     }
