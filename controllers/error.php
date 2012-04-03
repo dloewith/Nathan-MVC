@@ -6,7 +6,7 @@
  * Author: Nathan Davison
  */
 
-class Error extends BaseController
+class ErrorController extends BaseController
 {    
     //bad URL request error
     protected function badURL()

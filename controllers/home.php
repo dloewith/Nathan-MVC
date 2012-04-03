@@ -6,7 +6,7 @@
  * Author: Nathan Davison
  */
 
-class Home extends BaseController
+class HomeController extends BaseController
 {
     //default method
     protected function index()
