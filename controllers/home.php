@@ -8,12 +8,19 @@
 
 class HomeController extends BaseController
 {
+    //add to the parent constructor
+    public function __construct($action, $urlValues) {
+        parent::__construct($action, $urlValues);
+        
+        //create the model object
+        require("models/home.php");
+        $this->model = new HomeModel();
+    }
+    
     //default method
     protected function index()
     {
-        require("models/home.php");
-        $HomeModel = new HomeModel(); 
-        $this->returnView($HomeModel->index());
+        $this->view->output($this->model->index());
     }
 }
 

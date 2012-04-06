@@ -6,9 +6,11 @@
  * Author: Nathan Davison
  */
 
-//load the bare minimal required classes
+//load the required classes
 require("classes/basecontroller.php");  
 require("classes/basemodel.php");
+require("classes/view.php");
+require("classes/viewmodel.php");
 require("classes/loader.php");
 
 $loader = new Loader(); //create the loader object

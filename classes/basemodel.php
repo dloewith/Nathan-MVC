@@ -6,14 +6,13 @@
  * Author: Nathan Davison
  */
 
-abstract class BaseModel {
+class BaseModel {
     
     protected $viewModel;
-    
+
     //create the base and utility objects available to all models on model creation
     public function __construct()
     {
-        require("classes/viewmodel.php");
         $this->viewModel = new ViewModel();
     }
 }

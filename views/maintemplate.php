@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title><?php echo $viewModel->pageTitle; ?></title>
+<title><?php echo $viewModel->get('pageTitle'); ?></title>
 </head>
 <body>
-<?php require($viewLoc); ?>
+<?php require($this->viewFile); ?>
 </body>
 </html>
